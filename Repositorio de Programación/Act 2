@@ -1,0 +1,21 @@
+MULTIPLO_DENOMINACION = 50
+LIMITE_DIARIO = 6000
+
+try:
+    saldo = int(input("Ingrese su saldo disponible: "))
+    retirado_hoy = int(input("Ingrese el monto ya retirado hoy: "))
+    monto = int(input("Ingrese el monto a retirar: "))
+except ValueError:
+    exit()
+
+if monto % MULTIPLO_DENOMINACION != 0:
+    mensaje = "MONTO NO VÁLIDO"
+elif monto > saldo:
+    mensaje = "SALDO INSUFFICIENTE"
+elif retirado_hoy + monto > LIMITE_DIARIO:
+    mensaje = "LÍMITE DIARIO EXCEDIDO"
+else:
+    saldo -= monto
+    mensaje = "ENTREGADO"
+
+print(f"{mensaje} | tu saldo final es de: {saldo}")
