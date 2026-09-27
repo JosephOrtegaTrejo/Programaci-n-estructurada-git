@@ -1,0 +1,25 @@
+MAX_INTENTOS = 3
+NIP_CORRECTO = 2002
+
+
+def main():
+    intentos = 0
+    acceso_concedido = False
+
+    while intentos < MAX_INTENTOS and not acceso_concedido:
+        entrada = input("Por favor, ingresa tu NIP de 4 dígitos: ")
+        try:
+            nip_tecleado = int(entrada)
+            intentos += 1
+            if nip_tecleado == NIP_CORRECTO:
+                acceso_concedido = True
+        except ValueError:
+            print("Escribe un número entero.")
+
+    # Un solo print al final decide el resultado
+    mensaje = "ACCESO" if acceso_concedido else "DENEGADO"
+    print(mensaje)
+
+
+if __name__ == "__main__":
+    main()
