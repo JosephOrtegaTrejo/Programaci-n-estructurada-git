@@ -1,0 +1,51 @@
+import time
+import random
+
+def sum_objetivo(lista, objetivo):
+    n = len(lista)
+    for i in range(n):
+        for j in range(i + 1, n):
+            if lista[i] + lista[j] == objetivo:
+                return True
+    return False
+
+def sum_objetivo_optimizada(lista, objetivo):
+    vistos = set()
+    for numero in lista:
+        complemento = objetivo - numero
+        if complemento in vistos:
+            return True
+        vistos.add(numero)
+    return False
+
+if __name__ == "__main__":
+    lista = [1, 2, 3, 4, 5]
+    objetivo = 9
+    resultado = sum_objetivo(lista, objetivo)
+
+    inicio = time.perf_counter()
+    Final = time.perf_counter()
+    print(f"Tiepo de ejecución: {Final - float(inicio): .6f} segundos\n")
+
+   
+    tamaños = [100, 200, 1500, 2000]
+
+    print(" PRUEBAS Y MEDICIÓN DE TIEMPOS EN EL PEOR CASO ")
+    for n in tamaños:
+        lista_prueba = [random.randint(1, 1000) for _ in range(n)]
+        
+        objetivo_imposible = -1
+
+        inicio_v1 = time.perf_counter()
+        sum_objetivo(lista_prueba, objetivo_imposible)
+        fin_v1 = time.perf_counter()
+        tiempo_v1 = fin_v1 - inicio_v1
+
+        inicio_v2 = time.perf_counter()
+        sum_objetivo_optimizada(lista_prueba, objetivo_imposible)
+        fin_v2 = time.perf_counter()
+        tiempo_v2 = fin_v2 - inicio_v2
+
+        print(f"\nTamaño de lista (n = {n}):")
+        print(f"  - sum_objetivo (Original O(n²)): {tiempo_v1:.6f} segundos")
+        print(f"  - sum_objetivo_optimizada (O(n)): {tiempo_v2:.6f} segundos")
