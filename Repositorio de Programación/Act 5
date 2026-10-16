@@ -1,0 +1,31 @@
+import time
+import os
+import psutil
+
+def fibonacci(n):
+    if n < 2:
+        return n
+    return fibonacci(n - 1) + fibonacci(n - 2)
+
+def get_memory_usage():
+    process = psutil.Process(os.getpid())
+    
+    return process.memory_info().rss / 1024 / 1024  
+
+if __name__ == "__main__":
+    n = int(input("Ingrese un número entero positivo: "))
+
+    memoria_inicio = get_memory_usage()
+    inicio = time.perf_counter()
+
+    resultado = fibonacci(n)
+
+    fin = time.perf_counter()
+    memoria_fin = get_memory_usage()
+
+    memoria_consumida = memoria_fin - memoria_inicio
+
+    print(f"El {n}-ésimo número de Fibonacci es: {resultado}")
+    print(f"Tiempo de ejecución: {fin - inicio:.6f} segundos")
+    print(f"Uso de memoria total del proceso: {memoria_fin:.2f} MB")
+    print(f"Memoria consumida por la función: {memoria_consumida:.4f} MB")
