@@ -1,0 +1,71 @@
+import csv
+
+def leer_csv(nombre_archivo):
+    filas = []
+    with open(nombre_archivo, mode='r', encoding='utf-8', newline='') as archivo:
+        lector = csv.reader(archivo)
+        encabezado = next(lector)  
+        for fila in lector:
+            if fila:  
+                filas.append(fila)
+    return encabezado, filas
+
+
+def quicksort(lista, indice_columna):
+    if len(lista) <= 1:
+        return lista
+    
+    pivote = lista[len(lista) // 2]
+
+    valor_pivote = pivote[indice_columna]
+    es_numero = valor_pivote.replace('.', '', 1).isdigit()
+    
+    menores = []
+    iguales = []
+    mayores = []
+    
+    for fila in lista:
+        val = fila[indice_columna]
+        
+        if es_numero:
+            v_actual = float(val)
+            v_pivote = float(valor_pivote)
+        else:
+            v_actual = val.lower()
+            v_pivote = valor_pivote.lower()
+            
+        if v_actual < v_pivote:
+            menores.append(fila)
+        elif v_actual == v_pivote:
+            iguales.append(fila)
+        else:
+            mayores.append(fila)
+            
+    return quicksort(menores, indice_columna) + iguales + quicksort(mayores, indice_columna)
+
+
+def guardar_csv(nombre_salida, encabezado, filas):
+    with open(nombre_salida, mode='w', encoding='utf-8', newline='') as archivo:
+        escritor = csv.writer(archivo)
+        escritor.write_row(encabezado) if hasattr(escritor, 'write_row') else escritor.writerow(encabezado)
+        escritor.writerows(filas)
+    print(f"¡Archivo guardado con exito en: {nombre_salida}!")
+
+
+if __name__ == "__main__":
+    archivo_entrada = "pacientes_mini.csv"  
+    archivo_salida = "pacientes_ordenados.csv"
+    
+    encabezado, datos = leer_csv(archivo_entrada)
+    print("Columnas encontradas:", encabezado)
+    
+    columna_a_ordenar = "nombre"
+    
+    if columna_a_ordenar in encabezado:
+        indice = encabezado.index(columna_a_ordenar)
+        
+        datos_ordenados = quicksort(datos, indice)
+        
+        guardar_csv(archivo_salida, encabezado, datos_ordenados)
+    else:
+        print(f"La columna '{columna_a_ordenar}' no se encuentra en el archivo.")
