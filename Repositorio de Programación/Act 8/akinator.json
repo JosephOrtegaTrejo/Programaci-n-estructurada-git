@@ -1,0 +1,129 @@
+{
+  "pregunta": "¿Es una persona real?",
+  "si": {
+    "pregunta": "¿Es mujer?",
+    "si": {
+      "pregunta": "¿Fue presidenta?",
+      "si": {
+        "respuesta": "claudia sheinbaum"
+      },
+      "no": {
+        "pregunta": "¿Es artista?",
+        "si": {
+          "pregunta": "¿Habla español?",
+          "si": {
+            "respuesta": "Mon Laferte"
+          },
+          "no": {
+            "respuesta": "Lana del Rey"
+          }
+        },
+        "no": {
+          "respuesta": "Florence Nightingale"
+        }
+      }
+    },
+    "no": {
+      "respuesta": "Albert Einstein"
+    }
+  },
+  "no": {
+    "pregunta": "¿Tiene el cabello azul?",
+    "si": {
+      "pregunta": "¿Es un superheroe?",
+      "si": {
+        "respuesta": "Lady Bug"
+      },
+      "no": {
+        "respuesta": "¿Marinette?"
+      }
+    },
+    "no": {
+      "pregunta": "¿Es de color amarillo?",
+      "si": {
+        "respuesta": "Bob esponja"
+      },
+      "no": {
+        "pregunta": "¿Es una buena persona?",
+        "si": {
+          "pregunta": "¿Es mujer?",
+          "si": {
+            "respuesta": "¿Rose cuarzo?"
+          },
+          "no": {
+            "pregunta": "¿Proviene de un videojuego?",
+            "si": {
+              "pregunta": "¿",
+              "si": {
+                "respuesta": "Mario Bros"
+              },
+              "no": {
+                "pregunta": "¿Es un entrenador Pokemon?",
+                "si": {
+                  "respuesta": "Red"
+                },
+                "no": {
+                  "respuesta": "Steve de Minecraft"
+                }
+              }
+            },
+            "no": {
+              "pregunta": "¿Es del universo de Marvel?",
+              "si": {
+                "respuesta": "Spiderman"
+              },
+              "no": {
+                "pregunta": "¿Tiene cabello?",
+                "si": {
+                  "pregunta": "¿Usa chanclas?",
+                  "si": {
+                    "respuesta": "Steven Universe"
+                  },
+                  "no": {
+                    "pregunta": "¿Proviene de un ánime?",
+                    "si": {
+                      "pregunta": "¿Sale en Demon Slayer?",
+                      "si": {
+                        "respuesta": "Tanjiro Kamado"
+                      },
+                      "no": {
+                        "pregunta": "¿Tiene el cabello negro?",
+                        "si": {
+                          "pregunta": "¿Fue antagosita en algún punto de la historia?",
+                          "si": {
+                            "respuesta": "Vegeta"
+                          },
+                          "no": {
+                            "pregunta": "¿Le gusta pelear?",
+                            "si": {
+                              "respuesta": "Son Goku"
+                            },
+                            "no": {
+                              "respuesta": "Son Gohan"
+                            }
+                          }
+                        },
+                        "no": {
+                          "respuesta": "Trunks"
+                        }
+                      }
+                    },
+                    "no": {
+                      "respuesta": "Harry Potter"
+                    }
+                  }
+                },
+                "no": {
+                  "respuesta": "Aang de Avatar"
+                }
+              }
+            }
+          }
+        },
+        "no": {
+          "respuesta": "Anakyn skywalker"
+        }
+      }
+    }
+  }
+}
